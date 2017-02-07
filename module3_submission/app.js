@@ -28,12 +28,9 @@
       function FoundItemsDirectiveLink(scope, element, attrs, controller){
         scope.$watch('list.chechIfEmptyList()', function(newValue, oldValue){
           if(newValue === true){
-            console.log("empty");
             displayMenuMessage();
           }
           else{
-            console.log("filled");
-
             hideMenuMessage();
           }
         });
@@ -70,9 +67,6 @@
 
           promise.then(function(result){
             narrowCtrl.found = result;
-
-              console.log(narrowCtrl.found.length)
-
           })
         };
 
