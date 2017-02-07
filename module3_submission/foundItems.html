@@ -1,0 +1,17 @@
+
+    <table class="table table-striped" >
+      <!--<tr>
+        <th>Name</th>
+        <th>Short name</th>
+        <th>Description</th>
+        <th>Remove btn</th>
+      </tr>-->
+      <tr ng-repeat="item in list.found">
+            <td>{{$index + 1}}.</td>
+            <td>{{item.name}}</td>
+            <td>{{item.short_name}}</td>
+            <td>{{item.description}}</td>
+        <td><button class="btn btn-secondary" ng-click="list.onRemove({index: $index});">Don't want this one</button></td>
+      </tr>
+    </table>
+    <div class="msg">Nothing found. You either did not enter a search term or the term is not found in the menu.</div>
