@@ -1,0 +1,83 @@
+<div class="container">
+  <fieldset>
+    <legend class="reg-title">Sign up for our newsletter</legend>
+      <form name="regForm" novalidate>
+        <div class="form-group">
+            <input type="text"
+                   name="firstName"
+                   ng-model='regCtrl.user.firstName'
+                   placeholder="First Name"
+                   class="form-control"
+                   required
+                   minlength='3'>
+            <span ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">
+              First name must be at least 3 characters long
+            </span>
+        </div>
+
+        <div class="form-group">
+            <input type="text"
+                   name="lastName"
+                   ng-model='regCtrl.user.lastName'
+                   placeholder="Last Name"
+                   class="form-control"
+                   required
+                   minlength='3'>
+
+            <span ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) && regForm.lastName.$touched">
+              Last name must be at least 3 characters long
+            </span>
+        </div>
+
+        <div class="form-group">
+            <input type="email"
+                   name="email"
+                   ng-model='regCtrl.user.email'
+                   placeholder="Email something@somewhere"
+                   class="form-control"
+                   required>
+            <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+                 Email must be in the format something@somewhere
+            </span>
+        </div>
+
+        <div class="form-group">
+            <input type="text"
+                   name="phone"
+                   ng-model='regCtrl.user.phone'
+                   placeholder="Phone number ###-###-####"
+                   class="form-control"
+                   pattern="(\d{3})-(\d{3})-(\d{4})">
+            <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+                Phone number must be in the format ###-###-####
+            </span>
+        </div>
+
+        <div class="form-group">
+            <input type="text"
+                   name="menuItem"
+                   ng-model='regCtrl.user.menuItem'
+                   placeholder="What is the menu number of your favourite dish?"
+                   class="form-control"
+                   ng-blur="regCtrl.getMenuItem()"
+                   ng-focus="regCtrl.blockSubmitBtn()">
+            <span>
+              {{regCtrl.errorMessage}}
+            </span>
+
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary btn-submit"
+                    ng-disabled="regForm.$invalid && !regCtrl.enableSubmit"
+                    ng-click="regCtrl.submit()">Submit {{regCtrl.enableSubmit}}
+            </button>
+            <span>
+              {{regCtrl.infoMessage}}
+            </span>
+
+        </div>
+
+      </form>
+    </fieldset>
+</div>

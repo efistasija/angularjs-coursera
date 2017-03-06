@@ -1,0 +1,49 @@
+<div class="container">
+  <fieldset>
+    <div ng-if="infoCtrl.signup">
+      <legend class="reg-title">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></legend>
+      <!-- <span>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></span> -->
+    </div>
+    <div ng-if="!infoCtrl.signup" class="container">
+      <legend class="reg-title">Your info</legend>
+      <div class="row">
+        <div class="col-sm-6">Name</div>
+        <div class="col-sm-6">{{infoCtrl.user.firstName}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">Last Name</div>
+        <div class="col-sm-6">{{infoCtrl.user.lastName}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">Email</div>
+        <div class="col-sm-6"> {{infoCtrl.user.email}}</div>
+      </div>
+        <div class="row">
+          <div class="col-sm-12 reg-title">Your favourite dish</div>
+          </div>
+        <div ng-if="infoCtrl.user.menuItem">
+          <div class="menu-item-tile col-md-6">
+            <div class="row">
+              <div class="col-sm-5">
+                <div class="menu-item-photo">
+                  <div>{{infoCtrl.user.menuItem}}</div>
+                  <img class="img-responsive" width="250" height="150" ng-src="{{infoCtrl.user.menuItemImage}}" alt="{{infoCtrl.user.menuItemTitle}}">
+                </div>
+              </div>
+              <div class="menu-item-description col-sm-7">
+                <h3 class="menu-item-title">{{infoCtrl.user.menuItemTitle}}</h3>
+                <p class="menu-item-details">{{infoCtrl.user.menuItemDescription}}</p>
+              </div>
+            </div>
+            <hr class="visible-xs">
+          </div>
+        </div>
+        <div ng-if="!infoCtrl.user.menuItem" class="row">
+          <div class="col-sm-12">
+            You did not specify a favorite dish.
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
