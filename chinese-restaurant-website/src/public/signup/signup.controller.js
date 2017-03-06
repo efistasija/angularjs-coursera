@@ -39,6 +39,7 @@
            if(regCtrl.user.hasOwnProperty('menuItemInfo')){
              delete regCtrl.user.menuItemInfo;
            }
+           delete regCtrl.user.menuItem;
          })
          .finally(function () {
            regCtrl.enableSubmit = true;
