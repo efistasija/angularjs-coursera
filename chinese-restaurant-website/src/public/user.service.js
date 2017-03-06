@@ -20,9 +20,6 @@
         user.menuItemDescription = userInfo.menuItemInfo.description;
         user.menuItemImage = ApiPath + '/images/' + user.menuItem +'.jpg';
       }
-
-      console.log('in user service');
-      console.log(user);
     };
 
     service.getUserInfo = function () {

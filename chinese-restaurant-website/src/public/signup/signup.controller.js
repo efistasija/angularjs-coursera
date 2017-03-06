@@ -32,7 +32,6 @@
          var promise = MenuService.getMenuItem(regCtrl.user.menuItem);
 
          promise.then(function (result) {
-           console.log(result.data);
            regCtrl.user.menuItemInfo = result.data;
            regCtrl.errorMessage = "";
          }, function (error) {
